@@ -1,6 +1,6 @@
 {
   "asOf": "2026-07",
-  "tokens": { "value": "—", "note": "Claude/Codex 데스크탑 기준, 수동 갱신" },
+  "tokens": { "value": "174.6M", "note": "Claude 데스크탑 기준, 수동 갱신" },
   "wakatimeShareUrl": "",
   "fallback": {
     "contributions": [],
