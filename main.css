@@ -596,13 +596,13 @@ body {
 
 .liveboard-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1.25rem, 1rem + 1.5vw, 2rem);
 }
 
 @media (max-width: 800px) {
   .liveboard-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
