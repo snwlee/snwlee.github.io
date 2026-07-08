@@ -727,21 +727,19 @@ body {
 
 .grass-scroll {
   order: 1;
-  overflow-x: auto;
-  padding-bottom: 0.25rem;
 }
 
 .grass {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(7, 10px);
-  gap: 3px;
-  width: max-content;
+  grid-template-rows: repeat(7, auto);
+  grid-auto-columns: 1fr;
+  gap: 2px;
+  width: 100%;
 }
 
 .grass-cell {
-  width: 10px;
-  height: 10px;
+  aspect-ratio: 1;
   border-radius: 2px;
   background: var(--bg-raise);
 }

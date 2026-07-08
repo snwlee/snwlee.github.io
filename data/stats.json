@@ -1,6 +1,6 @@
 {
   "asOf": "2026-07",
-  "tokens": { "value": "195억+", "note": "Claude 1.7억 + Codex 193.5억 합산, 수동 갱신" },
+  "tokens": { "value": "195억+", "note": "Claude Code 1.7억 + Codex 193.5억" },
   "wakatimeShareUrl": "https://wakatime.com/share/@9b088db3-8ede-4dad-9a4b-63489f41376c/6be58ae5-32a9-4421-a44a-6fab154e3d49.json",
   "fallback": {
     "contributions": [],

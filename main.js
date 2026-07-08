@@ -112,7 +112,10 @@
           ? stats.tokens.value
           : "수집 중";
         setBoardValue(tokensValueEl, tokenText);
-        if (tokensNoteEl) tokensNoteEl.textContent = "기준: " + stats.asOf;
+        if (tokensNoteEl) {
+          var tokenNote = stats.tokens && stats.tokens.note ? stats.tokens.note + " · " : "";
+          tokensNoteEl.textContent = tokenNote + "기준: " + stats.asOf;
+        }
 
         // 잔디: 공개 컨트리뷰션 API
         fetchJSON("https://github-contributions-api.jogruber.de/v4/snwlee?y=last", 5000)
@@ -141,6 +144,17 @@
             .then(function (d) {
               var text = computeWakaHours(d);
               setBoardValue(codingValueEl, text || stats.fallback.codingHours);
+              try {
+                var data = d && d.data;
+                var gt = data && (Array.isArray(data) ? data[0] && data[0].grand_total : data.grand_total);
+                var codingNoteEl = document.querySelector("#stat-coding .stat-note");
+                if (codingNoteEl && gt && typeof gt.daily_average === "number") {
+                  var avgH = Math.floor(gt.daily_average / 3600);
+                  var avgM = Math.floor((gt.daily_average % 3600) / 60);
+                  codingNoteEl.textContent =
+                    "2022.03부터 · 코딩한 날 하루 평균 " + avgH + "시간 " + avgM + "분";
+                }
+              } catch (e) {}
             })
             .catch(function () {
               console.warn("liveboard: wakatime fetch failed");
