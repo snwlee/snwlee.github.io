@@ -1,6 +1,6 @@
 {
   "asOf": "2026-07",
-  "tokens": { "value": "174.6M", "note": "Claude 데스크탑 기준, 수동 갱신" },
+  "tokens": { "value": "195억+", "note": "Claude 1.7억 + Codex 193.5억 합산, 수동 갱신" },
   "wakatimeShareUrl": "",
   "fallback": {
     "contributions": [],
