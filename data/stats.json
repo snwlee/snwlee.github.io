@@ -1,0 +1,9 @@
+{
+  "asOf": "2026-07",
+  "tokens": { "value": "—", "note": "Claude/Codex 데스크탑 기준, 수동 갱신" },
+  "wakatimeShareUrl": "",
+  "fallback": {
+    "contributions": [],
+    "codingHours": "측정 시작"
+  }
+}

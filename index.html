@@ -252,7 +252,31 @@
           </article>
         </div>
       </section>
-      <section id="liveboard" class="section"></section>
+      <section id="liveboard" class="section liveboard-section">
+        <div class="liveboard-header reveal">
+          <p class="liveboard-kicker">LIVE BOARD</p>
+          <h2 class="liveboard-title">살아있는 기록</h2>
+        </div>
+        <div class="liveboard-grid">
+          <article id="stat-grass" class="board-tile board-tile-grass reveal">
+            <p class="board-tile-label">최근 1년 커밋 활동</p>
+            <div class="grass-scroll">
+              <div class="grass" aria-hidden="true"></div>
+            </div>
+            <p class="stat-note board-note"></p>
+          </article>
+          <article id="stat-coding" class="board-tile reveal">
+            <p class="stat-value">—</p>
+            <p class="board-tile-label">최근 30일 코딩 시간</p>
+            <p class="stat-note board-note"></p>
+          </article>
+          <article id="stat-tokens" class="board-tile reveal">
+            <p class="stat-value">—</p>
+            <p class="board-tile-label">누적 토큰</p>
+            <p class="stat-note board-note"></p>
+          </article>
+        </div>
+      </section>
       <section id="now" class="section"></section>
       <section id="projects" class="section"></section>
       <section id="contact" class="section"></section>

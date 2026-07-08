@@ -568,3 +568,130 @@ body {
   font-size: 0.9rem;
   font-family: var(--font-display);
 }
+
+/* ==========================================================================
+   Live Board (grass LED + wakatime + tokens)
+   ========================================================================== */
+.liveboard-header {
+  margin: 0 0 3rem;
+}
+
+.liveboard-kicker {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.liveboard-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.liveboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+}
+
+@media (max-width: 800px) {
+  .liveboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.board-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.5rem, 1rem + 2vw, 2rem);
+  border: 1px solid var(--text-dim);
+  border-radius: 0.5rem;
+  background: var(--bg-raise);
+}
+
+.board-tile-label {
+  order: 2;
+  margin: 0;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.board-tile .stat-value {
+  order: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.board-tile .stat-value.is-collecting {
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.4rem);
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.board-note {
+  order: 3;
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+}
+
+.board-tile-grass {
+  grid-column: span 1;
+}
+
+.grass-scroll {
+  order: 1;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.grass {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 10px);
+  gap: 3px;
+  width: max-content;
+}
+
+.grass-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--bg-raise);
+}
+
+.grass-cell.lvl-0 {
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.grass-cell.lvl-1 {
+  background: rgba(74, 222, 128, 0.3);
+}
+
+.grass-cell.lvl-2 {
+  background: rgba(74, 222, 128, 0.55);
+}
+
+.grass-cell.lvl-3 {
+  background: rgba(74, 222, 128, 0.8);
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.5);
+}
+
+.grass-cell.lvl-4 {
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.8);
+}
