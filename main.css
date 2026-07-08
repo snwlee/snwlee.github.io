@@ -399,3 +399,172 @@ body {
   color: var(--text-dim);
   line-height: 1.5;
 }
+
+/* ==========================================================================
+   Interests (AI / Cloud / Quantum Native)
+   ========================================================================== */
+.interests-header {
+  margin: 0 0 3rem;
+}
+
+.interests-kicker {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.interests-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.interests-panels {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 2rem + 4vw, 5rem);
+}
+
+.interest-panel {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem) clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border-left: 4px solid transparent;
+}
+
+.interest-panel-ai {
+  border-left-color: var(--accent-ai);
+}
+
+.interest-panel-cloud {
+  border-left-color: var(--accent-cloud);
+}
+
+.interest-panel-quantum {
+  border-left-color: var(--accent-quantum);
+}
+
+.interest-panel-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.interest-panel-ai .interest-panel-title {
+  color: var(--accent-ai);
+}
+
+.interest-panel-cloud .interest-panel-title {
+  color: var(--accent-cloud);
+}
+
+.interest-panel-quantum .interest-panel-title {
+  color: var(--accent-quantum);
+}
+
+.interest-lead {
+  margin: 0;
+  max-width: 38ch;
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.interest-body {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--text-dim);
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  line-height: 1.6;
+}
+
+.interest-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 52ch;
+}
+
+.interest-list-item {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--text-dim);
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  line-height: 1.6;
+}
+
+.interest-list-item::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-ai);
+}
+
+.interest-footnote {
+  margin: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+.interest-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 40ch;
+}
+
+.interest-step {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.interest-step-num {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent-cloud);
+  color: var(--accent-cloud);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.interest-step-text {
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.15rem);
+  color: var(--text);
+}
+
+.interest-step-date {
+  margin-left: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-family: var(--font-display);
+}
