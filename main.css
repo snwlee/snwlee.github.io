@@ -217,3 +217,103 @@ body {
     transition-delay: 0ms;
   }
 }
+
+/* ==========================================================================
+   Timeline
+   ========================================================================== */
+.timeline-header {
+  margin: 0 0 3rem;
+}
+
+.timeline-kicker {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.timeline-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.timeline-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  left: 5px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--bg-raise), var(--accent));
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 clamp(2rem, 1.5rem + 2vw, 3rem) 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-raise);
+  border: 2px solid var(--text-dim);
+  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+
+.timeline-item.is-visible .timeline-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.timeline-year {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+.timeline-heading {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.timeline-desc {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-dot {
+    transition: none;
+  }
+}
