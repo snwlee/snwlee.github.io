@@ -277,9 +277,104 @@
           </article>
         </div>
       </section>
-      <section id="now" class="section"></section>
-      <section id="projects" class="section"></section>
-      <section id="contact" class="section"></section>
+      <section id="now" class="section now-section">
+        <div class="now-header reveal">
+          <p class="now-kicker">NOW — 2026.07</p>
+          <h2 class="now-title">지금 하고 있는 것</h2>
+        </div>
+        <ul class="now-list">
+          <li class="now-item reveal">
+            <span class="now-dot" aria-hidden="true"></span>
+            <span class="now-text">CKA 준비 중 — 8월 응시</span>
+          </li>
+          <li class="now-item reveal">
+            <span class="now-dot" aria-hidden="true"></span>
+            <span class="now-text">Keycloak OIDC → EKS 인증 PoC 진행 중</span>
+          </li>
+          <li class="now-item reveal">
+            <span class="now-dot" aria-hidden="true"></span>
+            <span class="now-text">오픈소스 2종 운영 — AiIssueTriage · KubeAccessBroker</span>
+          </li>
+        </ul>
+      </section>
+      <section id="projects" class="section projects-section">
+        <div class="projects-header reveal">
+          <p class="projects-kicker">PROJECTS</p>
+          <h2 class="projects-title">만들고 있는 것들</h2>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <h3 class="project-title">AiIssueTriage</h3>
+            <p class="project-desc">이슈 자동 분류·RAG 영향도 분석 파이프라인</p>
+            <ul class="project-tags">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>pgvector</li>
+            </ul>
+            <a
+              class="project-link"
+              href="https://github.com/snwlee/AiIssueTriage"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub ↗</a
+            >
+          </article>
+          <article class="project-card reveal">
+            <h3 class="project-title">KubeAccessBroker</h3>
+            <p class="project-desc">K8s 접근권한 브로커(단기 토큰·RBAC·감사)</p>
+            <ul class="project-tags">
+              <li>Java</li>
+              <li>Spring Boot</li>
+              <li>fabric8</li>
+            </ul>
+            <a
+              class="project-link"
+              href="https://github.com/snwlee/KubeAccessBroker"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub ↗</a
+            >
+          </article>
+          <article class="project-card reveal">
+            <h3 class="project-title">엔터프라이즈 AI 자동화 파이프라인</h3>
+            <p class="project-desc">이슈→분석→코드 수정안→빌드 자동화 (사내)</p>
+          </article>
+          <article class="project-card reveal">
+            <h3 class="project-title">배경화면 앱 30개</h3>
+            <p class="project-desc">Flutter, 최대 DAU 3,000</p>
+          </article>
+        </div>
+      </section>
+      <section id="contact" class="section contact-section">
+        <p class="contact-heading reveal">더 깊은 이야기는 여기에</p>
+        <ul class="contact-links">
+          <li class="reveal">
+            <a class="contact-link" href="/resume/">이력서</a>
+          </li>
+          <li class="reveal">
+            <a
+              class="contact-link"
+              href="https://github.com/snwlee"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+          <li class="reveal">
+            <a
+              class="contact-link"
+              href="https://velog.io/@iseon_u"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Velog</a
+            >
+          </li>
+          <li class="reveal">
+            <a class="contact-link" href="mailto:pgrrr119@gmail.com">이메일</a>
+          </li>
+        </ul>
+        <footer class="site-footer reveal">Built with Claude · 2026</footer>
+      </section>
     </main>
   </body>
 </html>
