@@ -688,6 +688,15 @@ body {
   color: var(--text-dim);
 }
 
+.board-subnote {
+  order: 4;
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--text-dim);
+  opacity: 0.75;
+}
+
 .board-tile-grass {
   grid-column: span 1;
 }
