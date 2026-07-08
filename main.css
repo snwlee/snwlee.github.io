@@ -565,6 +565,22 @@ body {
   color: var(--text-dim);
 }
 
+.quote-personal {
+  margin: 2.5rem auto 0;
+  max-width: 44ch;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.contact-aside {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
 .interest-steps {
   margin: 0;
   padding: 0;
