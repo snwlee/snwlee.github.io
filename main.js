@@ -147,14 +147,16 @@
               setBoardValue(codingValueEl, stats.fallback.codingHours);
             });
         } else {
-          setBoardValue(codingValueEl, stats.fallback.codingHours);
+          setBoardValue(codingValueEl, (stats.fallback && stats.fallback.codingHours) || "수집 중");
         }
       }).catch(function () {
         console.warn("liveboard: stats.json fetch failed");
-        setBoardValue(document.querySelector("#stat-tokens .stat-value"), "—");
-        setBoardValue(document.querySelector("#stat-coding .stat-value"), "—");
+        setBoardValue(document.querySelector("#stat-tokens .stat-value"), "수집 중");
+        setBoardValue(document.querySelector("#stat-coding .stat-value"), "수집 중");
         var note = document.querySelector("#stat-grass .stat-note");
         if (note) note.textContent = "오프라인 스냅샷";
+        var gs = document.querySelector("#stat-grass .grass-scroll");
+        if (gs) gs.style.display = "none";
       });
     } catch (e) {
       console.warn("liveboard: init failed");
