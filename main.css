@@ -1,0 +1,147 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+:root {
+  --bg: #07090c; /* 거의 검정, 파랑기 */
+  --bg-raise: #0d1117;
+  --text: #e6e8eb;
+  --text-dim: #8b949e;
+  --accent: #4ade80; /* LED 그린 — 잔디·포인트 */
+  --accent-ai: #a78bfa; /* AI 보라 */
+  --accent-cloud: #38bdf8; /* Cloud 하늘 */
+  --accent-quantum: #f472b6; /* Quantum 핑크 */
+  --font-body: "Pretendard", sans-serif;
+  --font-display: "Space Grotesk", "Pretendard", sans-serif;
+  --text-hero: clamp(2.5rem, 1rem + 6vw, 6rem);
+  --text-quote: clamp(1.6rem, 1rem + 3.5vw, 3.5rem);
+  --space-section: clamp(5rem, 4rem + 8vw, 12rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+.section {
+  min-height: 60vh;
+  padding: var(--space-section) clamp(1.25rem, 4vw, 4rem);
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: clamp(1.25rem, 4vw, 4rem);
+  text-align: center;
+  background: radial-gradient(1200px 600px at 70% -10%, #10321f66, transparent);
+}
+
+.hero-kicker {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtext {
+  max-width: 38ch;
+  margin: 1.75rem 0 0;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  color: var(--text-dim);
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 0.45rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.chip-ai {
+  color: var(--accent-ai);
+}
+
+.chip-cloud {
+  color: var(--accent-cloud);
+}
+
+.chip-quantum {
+  color: var(--accent-quantum);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: clamp(1.5rem, 4vw, 3rem);
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  animation: scroll-bounce 2s infinite var(--ease-out);
+}
+
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator {
+    animation: none;
+  }
+}
