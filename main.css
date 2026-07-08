@@ -581,6 +581,14 @@ body {
   color: var(--text-dim);
 }
 
+.liveboard-lead {
+  margin: 1.25rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
 .interest-steps {
   margin: 0;
   padding: 0;
