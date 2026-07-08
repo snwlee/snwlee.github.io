@@ -558,6 +558,13 @@ body {
   background: var(--accent-quantum);
 }
 
+.interests-extra {
+  margin: 2.5rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
 .interest-steps {
   margin: 0;
   padding: 0;
