@@ -767,6 +767,39 @@ body {
   box-shadow: 0 0 6px rgba(74, 222, 128, 0.8);
 }
 
+.coding-heatmap {
+  margin-top: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+
+.coding-heatmap[hidden] {
+  display: none;
+}
+
+.heatmap-label {
+  margin: 0 0 0.9rem;
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  color: var(--text-dim);
+  letter-spacing: 0.01em;
+}
+
+.heatmap-scroll {
+  overflow: hidden;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, auto);
+  grid-auto-columns: 1fr;
+  gap: 1.5px;
+  width: 100%;
+}
+
+/* 히트맵은 셀이 매우 많아 글로우를 끈다(성능) */
+.heatmap-grid .grass-cell {
+  box-shadow: none;
+}
+
 /* ==========================================================================
    Now
    ========================================================================== */

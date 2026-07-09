@@ -2,6 +2,7 @@
   "asOf": "2026-07",
   "tokens": { "value": "195억+", "note": "Claude Code 1.7억 + Codex 193.5억" },
   "wakatimeShareUrl": "https://wakatime.com/share/@9b088db3-8ede-4dad-9a4b-63489f41376c/6be58ae5-32a9-4421-a44a-6fab154e3d49.json",
+  "wakatimeHeatmapUrl": "https://wakatime.com/share/@9b088db3-8ede-4dad-9a4b-63489f41376c/3f54f9bf-a0a3-48e1-997e-bc66e8b456d3.json",
   "fallback": {
     "contributions": [],
     "codingHours": "측정 시작"

@@ -79,6 +79,42 @@
     container.appendChild(frag);
   }
 
+  // WakaTime 일별 코딩 시간(초)을 0~4 레벨로 매핑
+  function codingLevel(seconds) {
+    if (!seconds || seconds <= 0) return 0;
+    var h = seconds / 3600;
+    if (h < 1) return 1;
+    if (h < 3) return 2;
+    if (h < 6) return 3;
+    return 4;
+  }
+
+  function renderCodingHeatmap(days) {
+    var wrap = document.querySelector("#coding-heatmap");
+    var container = document.querySelector("#coding-heatmap .heatmap-grid");
+    if (!wrap || !container || !days || !days.length) return;
+    container.textContent = "";
+    var frag = document.createDocumentFragment();
+    var firstDate = new Date(days[0].date + "T00:00:00");
+    var startDay = isNaN(firstDate.getTime()) ? 0 : firstDate.getDay();
+    for (var i = 0; i < startDay; i++) {
+      var pad = document.createElement("div");
+      pad.className = "grass-cell";
+      frag.appendChild(pad);
+    }
+    days.forEach(function (d) {
+      var cell = document.createElement("div");
+      var lvl = codingLevel(d.total);
+      cell.className = "grass-cell lvl-" + lvl;
+      var h = Math.floor((d.total || 0) / 3600);
+      var m = Math.floor(((d.total || 0) % 3600) / 60);
+      cell.title = d.date + ": " + h + "시간 " + m + "분";
+      frag.appendChild(cell);
+    });
+    container.appendChild(frag);
+    wrap.hidden = false;
+  }
+
   function computeWakaHours(d) {
     try {
       var data = d && d.data;
@@ -162,6 +198,17 @@
             });
         } else {
           setBoardValue(codingValueEl, (stats.fallback && stats.fallback.codingHours) || "수집 중");
+        }
+
+        // 코딩 활동 히트맵 (WakaTime 일별 시계열)
+        if (stats.wakatimeHeatmapUrl) {
+          fetchJSON(stats.wakatimeHeatmapUrl, 6000)
+            .then(function (d) {
+              renderCodingHeatmap(d && d.days);
+            })
+            .catch(function () {
+              console.warn("liveboard: coding heatmap fetch failed");
+            });
         }
       }).catch(function () {
         console.warn("liveboard: stats.json fetch failed");
