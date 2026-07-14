@@ -141,7 +141,7 @@
 
   function initLiveBoard() {
     try {
-      fetchJSON("data/stats.json", 3000).then(function (stats) {
+      fetchJSON("/data/stats.json", 3000).then(function (stats) {
         var tokensValueEl = document.querySelector("#stat-tokens .stat-value");
         var tokensNoteEl = document.querySelector("#stat-tokens .stat-note");
         var tokenText = stats.tokens && stats.tokens.value && stats.tokens.value !== "—"
