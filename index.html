@@ -414,6 +414,74 @@
           </article>
         </div>
       </section>
+      <section id="casestudy" class="section casestudy-section">
+        <div class="cs-header reveal">
+          <p class="cs-kicker">CASE STUDY</p>
+          <h2 class="cs-title">엔터프라이즈 업그레이드를, AI 파이프라인으로</h2>
+          <p class="cs-sub">
+            2.5만 건 이슈를 사람이 하나씩 분석·수정하던 업그레이드 작업을,
+            수집부터 코드 수정안·빌드 검증까지 자동화한 과정.
+          </p>
+        </div>
+
+        <div class="cs-block reveal">
+          <span class="cs-label">PROBLEM</span>
+          <p class="cs-text">
+            버전 업그레이드마다 수천 건의 커스텀 이슈를 개발자가 직접 분류하고,
+            영향도를 파악하고, 코드를 고쳤다. 반복적이고 느리며, 사람마다 판단이
+            달랐다.
+          </p>
+        </div>
+
+        <div class="cs-block reveal">
+          <span class="cs-label">DESIGN DECISIONS</span>
+          <div class="cs-decisions">
+            <article class="cs-decision">
+              <h3>왜 룰이 아니라 RAG인가</h3>
+              <p>
+                키워드 룰은 새로운 이슈 유형에서 무너졌다. 과거 해결 사례를
+                의미 검색으로 주입(RAG)해야 영향도 판단이 실제 맥락을 따랐다.
+              </p>
+            </article>
+            <article class="cs-decision">
+              <h3>왜 사람 검토 게이트를 두는가</h3>
+              <p>
+                LLM 출력을 자동 적용하지 않는다. dry-run diff로 보여주고
+                개발자가 라인 단위로 승인한 뒤에만 반영 — 자동화하되 통제는
+                사람에게.
+              </p>
+            </article>
+            <article class="cs-decision">
+              <h3>왜 룰 폴백이 필요한가</h3>
+              <p>
+                LLM이 실패하거나 키가 없어도 파이프라인이 멈추면 안 된다. 룰
+                기반 폴백으로 끝까지 동작하도록 설계 (오픈소스
+                <a href="https://github.com/snwlee/AiIssueTriage" target="_blank" rel="noopener noreferrer">AiIssueTriage</a>로 공개).
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="cs-block reveal">
+          <span class="cs-label">ARCHITECTURE</span>
+          <ol class="cs-pipeline">
+            <li class="cs-node reveal"><span class="cs-n">01</span><b>수집</b><span>Redmine 증분 · 30분</span></li>
+            <li class="cs-node reveal"><span class="cs-n">02</span><b>분류</b><span>pgvector 의미검색 · 15종</span></li>
+            <li class="cs-node reveal"><span class="cs-n">03</span><b>RAG 분석</b><span>과거 사례 주입 · risk 0–100</span></li>
+            <li class="cs-node reveal"><span class="cs-n">04</span><b>검토·생성</b><span>대시보드 · dry-run diff</span></li>
+            <li class="cs-node reveal"><span class="cs-n">05</span><b>빌드·반영</b><span>Docker/Maven · 코멘트 자동</span></li>
+          </ol>
+        </div>
+
+        <div class="cs-block reveal">
+          <span class="cs-label">RESULT</span>
+          <p class="cs-text">
+            반복 분석을 자동화하고, 판단 기준을 코드로 고정했다. 사람은 최종
+            승인에만 개입한다. 이 경험을 팀에 <b>TDD로 이식·교육</b>하고,
+            에이전트 하네스로 <b>계속 고도화</b> 중이다.
+          </p>
+        </div>
+      </section>
       <section id="contact" class="section contact-section">
         <p class="contact-heading reveal">더 깊은 이야기는 여기에</p>
         <p class="contact-aside reveal">
