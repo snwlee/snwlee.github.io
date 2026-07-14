@@ -1065,3 +1065,105 @@ body {
   letter-spacing: 0.02em;
   color: var(--text-dim);
 }
+
+/* ==========================================================================
+   Boot intro (풀스크린 CMD 부팅)
+   ========================================================================== */
+body.booting {
+  overflow: hidden;
+}
+
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 6vw, 7rem);
+  font-family: "Consolas", "SFMono-Regular", ui-monospace, monospace;
+}
+
+.boot[hidden] {
+  display: none;
+}
+
+.boot::after {
+  /* 스캔라인 오버레이 */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(74, 222, 128, 0.04) 0,
+    rgba(74, 222, 128, 0.04) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+.boot-log {
+  margin: 0;
+  max-width: 900px;
+  color: var(--accent);
+  font-size: clamp(0.82rem, 0.7rem + 0.6vw, 1.05rem);
+  line-height: 2;
+  white-space: pre-wrap;
+  text-shadow: 0 0 9px rgba(74, 222, 128, 0.45);
+}
+
+.boot-log .ok {
+  color: #e6e8eb;
+}
+.boot-log .grant {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+.boot-cursor {
+  display: inline-block;
+  width: 0.6em;
+  animation: boot-blink 1s steps(1) infinite;
+}
+@keyframes boot-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.boot-skip {
+  position: fixed;
+  top: 1.1rem;
+  right: 1.1rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  border-radius: 6px;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.boot-skip:hover,
+.boot-skip:focus-visible {
+  background: rgba(74, 222, 128, 0.12);
+  border-color: var(--accent);
+}
+
+.boot.is-done {
+  animation: boot-out 0.5s ease forwards;
+}
+@keyframes boot-out {
+  0% { opacity: 1; transform: translateY(0); filter: none; }
+  15% { transform: translateX(-4px); filter: hue-rotate(40deg); }
+  30% { transform: translateX(5px); }
+  100% { opacity: 0; transform: translateY(-12px); filter: blur(3px); visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot { display: none; }
+  body.booting { overflow: auto; }
+}

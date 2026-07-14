@@ -224,7 +224,82 @@
     }
   }
 
+  function initBoot() {
+    var boot = document.getElementById("boot");
+    if (!boot) return;
+    var log = document.getElementById("boot-log");
+    var skip = document.getElementById("boot-skip");
+
+    // 모션 최소화 사용자는 인트로 생략
+    if (reduced) {
+      boot.parentNode && boot.parentNode.removeChild(boot);
+      return;
+    }
+
+    document.body.classList.add("booting");
+
+    var lines = [
+      "> booting snwlee.dev ...",
+      "> mount /identity ............ <span class='ok'>ok</span>",
+      "> load  enterprise-integration-backend",
+      "> load  ai · cloud · quantum native",
+      "> decrypt profile ............ <span class='ok'>ok</span>",
+      "> <span class='grant'>ACCESS GRANTED</span>",
+    ];
+
+    var i = 0;
+    var timers = [];
+    var finished = false;
+
+    function render() {
+      log.innerHTML =
+        lines.slice(0, i).join("\n") +
+        (i < lines.length ? "\n<span class='boot-cursor'>█</span>" : "");
+    }
+
+    function finish() {
+      if (finished) return;
+      finished = true;
+      timers.forEach(clearTimeout);
+      boot.classList.add("is-done");
+      document.body.classList.remove("booting");
+      var done = function () {
+        if (boot.parentNode) boot.parentNode.removeChild(boot);
+      };
+      boot.addEventListener("animationend", done, { once: true });
+      // 애니메이션 미지원 대비 안전망
+      timers.push(setTimeout(done, 700));
+    }
+
+    function step() {
+      i += 1;
+      render();
+      if (i >= lines.length) {
+        timers.push(setTimeout(finish, 650));
+        return;
+      }
+      var gap = i === lines.length - 1 ? 420 : 230;
+      timers.push(setTimeout(step, gap));
+    }
+
+    render();
+    timers.push(setTimeout(step, 260));
+
+    skip.addEventListener("click", finish);
+    boot.addEventListener("click", function (e) {
+      if (e.target !== skip) finish();
+    });
+    document.addEventListener("keydown", function onKey(e) {
+      if (finished) {
+        document.removeEventListener("keydown", onKey);
+        return;
+      }
+      if (e.key === "Enter" || e.key === "Escape" || e.key === " ") finish();
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    initBoot();
     initReveal();
     initCounters();
     initLiveBoard();
