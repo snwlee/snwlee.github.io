@@ -1280,3 +1280,45 @@ body.booting {
 @media (max-width: 760px) {
   .cs-node:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -0.7rem; transform: translateX(50%); }
 }
+
+/* ==========================================================================
+   Site nav (홈·이력서 크로스 내비)
+   ========================================================================== */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem clamp(1.25rem, 4vw, 3rem);
+  background: rgba(7, 9, 12, 0.55);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-nav-brand {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-nav-links {
+  display: flex;
+  gap: clamp(0.9rem, 2.5vw, 1.6rem);
+}
+
+.site-nav-links a {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-nav-links a:hover,
+.site-nav-links a:focus-visible {
+  color: var(--accent);
+}

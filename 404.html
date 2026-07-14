@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 · 이선우</title>
+    <meta name="robots" content="noindex" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2307090c'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%234ade80'/%3E%3C/svg%3E"
+    />
+    <style>
+      * { box-sizing: border-box; margin: 0; }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #07090c;
+        color: #4ade80;
+        font-family: "Consolas", "SFMono-Regular", ui-monospace, monospace;
+        padding: 1.5rem;
+      }
+      .term {
+        width: min(640px, 100%);
+        border: 1px solid rgba(74, 222, 128, 0.25);
+        border-radius: 12px;
+        background: #0a0d12;
+        overflow: hidden;
+      }
+      .bar { display: flex; gap: 8px; padding: 12px 14px; background: #0d1117; }
+      .bar i { width: 12px; height: 12px; border-radius: 50%; }
+      .bar i:nth-child(1) { background: #ff5f56; }
+      .bar i:nth-child(2) { background: #ffbd2e; }
+      .bar i:nth-child(3) { background: #27c93f; }
+      .body { padding: 1.6rem 1.7rem 1.9rem; font-size: 0.95rem; line-height: 2.1; }
+      .dim { color: #8b949e; }
+      .err { color: #ff6b6b; }
+      h1 { font-size: 3.4rem; letter-spacing: 4px; margin: 0.4rem 0 0.6rem; color: #e6e8eb; }
+      .links { margin-top: 1.1rem; display: flex; gap: 0.7rem; flex-wrap: wrap; }
+      .links a {
+        color: #4ade80;
+        text-decoration: none;
+        border: 1px solid rgba(74, 222, 128, 0.4);
+        border-radius: 6px;
+        padding: 0.45rem 0.95rem;
+        font-size: 0.85rem;
+        transition: background 0.2s;
+      }
+      .links a:hover { background: rgba(74, 222, 128, 0.12); }
+      .cur { display: inline-block; width: 0.6em; height: 1em; background: #4ade80; vertical-align: -0.15em; animation: b 1s steps(1) infinite; }
+      @keyframes b { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .cur { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <main class="term">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="body">
+        <div class="dim">$ cd <span id="path">/requested/page</span></div>
+        <div class="err">bash: cd: no such file or directory</div>
+        <h1>404</h1>
+        <div class="dim">찾으시는 페이지가 없습니다. 아래 경로는 확실히 존재합니다:</div>
+        <nav class="links">
+          <a href="/">~/ 홈</a>
+          <a href="/intro/">/intro 소개</a>
+          <a href="/resume/">/resume 이력서</a>
+        </nav>
+        <div style="margin-top: 1.2rem">$ <span class="cur"></span></div>
+      </div>
+    </main>
+    <script>
+      var p = document.getElementById("path");
+      if (p) p.textContent = location.pathname || "/requested/page";
+    </script>
+  </body>
+</html>
